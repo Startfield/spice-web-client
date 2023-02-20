@@ -101,7 +101,7 @@ wdi.KeymapUS = function() {
 
     keymapUS[27]                 = 0x1; // ESC
     keymapUS[9]                 = 0x0F; // TAB
-    //keymapUS[20]                = 0x3A; // // BLOQ.MAY. => see the charmap, all the capital letters and shift chars send a shift in their sequence
+    keymapUS[20]                = 0x3A; // // BLOQ.MAY. => see the charmap, all the capital letters and shift chars send a shift in their sequence
     keymapUS[16]                = 0x2A; // LEFT SHIFT and RIGHT SHIFT
 	keymapUS[91]                = 0x1D; // LEFT GUI (META, COMMAND) BINDED TO CONTROL
 	keymapUS[17]                = 0x1D; // LEFT CONTROL and RIGHT CONTROL
