@@ -208,8 +208,8 @@ function start () {
 	app.run({
 		'callback': f,
 		'context': this,
-		'host': getURLParameter('host') || '10.11.12.100',
-		'port': getURLParameter('port') || 8000,
+		'host': getURLParameter('host') || 'spice.iad-metal.startfield.org',
+		'port': getURLParameter('port') || 443,
 		'protocol': getURLParameter('protocol') || 'wss',
 		'token': '1q2w3e4r',
 		'vmHost': getURLParameter('vmhost') || false,
