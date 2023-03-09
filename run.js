@@ -38,8 +38,8 @@ function getURLParameter (name) {
 }
 
 
-wdi.Debug.debug = false; //enable logging to javascript console
-wdi.exceptionHandling = false; //disable "global try catch" to improve debugging
+wdi.Debug.debug = true; //enable logging to javascript console
+wdi.exceptionHandling = true; //disable "global try catch" to improve debugging
 //if enabled, console errors do not include line numbers
 //wdi.SeamlessIntegration = false; //enable window integration. (if disabled, full desktop is received)
 
@@ -221,11 +221,11 @@ function start () {
 		'busUser': '00000000-0000-0000-0000-000000000000',
 		'busPass': 'potato',
         // Connection Control
-		'connectionControl': false,
+		'connectionControl': true,
         'heartbeatToken': 'heartbeat',
 		'heartbeatTimeout': 4000,//miliseconds
 		'busFileServerBaseUrl': 'https://10.11.12.200/fileserver/',
-		'layout': 'es',
+		'layout': 'en',
 		'clientOffset': {
 			'x': 0,
 			'y': 0
@@ -233,7 +233,7 @@ function start () {
 		'useWorkers': useWorkers,
 		'seamlessDesktopIntegration': false,
 		'externalClipboardHandling': false,
-		'disableClipboard': true,
+		'disableClipboard': false,
 		'layer': document.getElementById('testVdi'),
 		'vmInfoToken': getURLParameter('vmInfoToken')
 		//'language': navigator.language

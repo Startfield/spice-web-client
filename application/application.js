@@ -329,6 +329,7 @@ Application = $.spcExtend(wdi.DomainObject, {
     },
 
     sendCommand: function (action, params) {
+        wdi.Debug.log("Command being sent: " + action + "Params being sent: " + params + "")
         switch (action) {
             case "close":
                 this.busProcess.closeWindow(params['hwnd']);
