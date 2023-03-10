@@ -38,8 +38,8 @@ function getURLParameter (name) {
 }
 
 
-wdi.Debug.debug = true; //enable logging to javascript console
-wdi.exceptionHandling = true; //disable "global try catch" to improve debugging
+wdi.Debug.debug = getURLParameter('debug') || false; //enable logging to javascript console
+wdi.exceptionHandling = getURLParameter('exhand') || false; //disable "global try catch" to improve debugging
 //if enabled, console errors do not include line numbers
 //wdi.SeamlessIntegration = false; //enable window integration. (if disabled, full desktop is received)
 
@@ -231,7 +231,7 @@ function start () {
 			'y': 0
 		},
 		'useWorkers': useWorkers,
-		'seamlessDesktopIntegration': false,
+		'seamlessDesktopIntegration': getURLParameter('sdi') || false,
 		'externalClipboardHandling': true,
 		'disableClipboard': false,
 		'layer': document.getElementById('testVdi'),
