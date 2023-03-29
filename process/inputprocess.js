@@ -6,6 +6,13 @@ wdi.InputProcess = $.spcExtend(wdi.EventObject.prototype, {
 		this.superInit();
 		this.clientGui = c.clientGui;
 		this.spiceConnection = c.spiceConnection;
+		// set all modifiers to false
+		packet = new wdi.SpiceMessage({
+			messageType: wdi.SpiceVars.SPICE_MSGC_INPUTS_KEY_MODIFIERS,
+			channel: wdi.SpiceVars.SPICE_CHANNEL_INPUTS,
+			args:  new wdi.SpiceKeyboardModifierFlags({data:0}),	
+		});
+		this.spiceConnection.send(packet);
 	},
 	
 	process: function(spiceMessage) {

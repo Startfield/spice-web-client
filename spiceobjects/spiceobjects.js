@@ -313,6 +313,21 @@ wdi.SpiceObject = {
     }
 };
 
+wdi.SpiceKeyboardModifierFlags = $.spcExtend(wdi.SpiceObject, {
+    objectSize: 4,
+    
+    marshall: function() {
+        this.rawData = [];
+        this.rawData = this.rawData.concat(
+            //this.numberTo64(this.serial),
+            //this.numberTo16(this.type),
+            //this.numberTo32(this.size)
+            this.numberTo32(this.data)
+        );
+        return this.rawData;
+    },
+
+});
 wdi.SpiceDataHeader = $.spcExtend(wdi.SpiceObject, {
     objectSize:6,
 

@@ -101,7 +101,9 @@ wdi.KeymapUS = function() {
 
     keymapUS[27]                 = 0x1; // ESC
     keymapUS[9]                 = 0x0F; // TAB
-    keymapUS[20]                = 0x3A; // // BLOQ.MAY. => see the charmap, all the capital letters and shift chars send a shift in their sequence
+ // Disable capslock, that's a nightmare
+    // keymapUS[20]                = 0x3A; // // BLOQ.MAY. => see the charmap, all the capital letters and shift chars send a shift in their sequence
+    keymapUS[20]                = 135;
     keymapUS[16]                = 0x2A; // LEFT SHIFT and RIGHT SHIFT
 	keymapUS[91]                = 0x1D; // LEFT GUI (META, COMMAND) BINDED TO CONTROL
 	keymapUS[17]                = 0x1D; // LEFT CONTROL and RIGHT CONTROL
@@ -120,7 +122,7 @@ wdi.KeymapUS = function() {
     keymapUS[35]                = 0x4F; // FIN
     keymapUS[33]                = 0x49; // PAGE UP
     keymapUS[34]                = 0x51; // PAGE UP
-    keymapUS[144]               = 0x45; // BLOQ.NUM.
+//    keymapUS[144]               = 0x45; // BLOQ.NUM.
     keymapUS[145]                = 0x46; // SCROLL LOCK
     keymapUS[112]                = 0x3B; // F1
     keymapUS[113]                = 0x3C; // F2
