@@ -183,5 +183,9 @@ must display the words "Powered by eyeos" and retain the original copyright noti
             <div class="closeButton" onclick="closeIntegrationBenchmark();">X</div>
             <button id="launchWordButton"  type="button" onclick=startBenchmark()>Start benchmark</button>
         </div>
+        <div id="powerbuttons" style="height:20px;position:absolute;bottom:0;">
+            <!-- Buttons to query the API to turn the VMs on, off, and force-reboot (reset) -->
+            <button onclick="startVM();">Start VM</button>
+        </div>
     </body>
 </html>

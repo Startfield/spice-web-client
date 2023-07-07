@@ -45,6 +45,9 @@ wdi.exceptionHandling = getURLParameter('exhand') || false; //disable "global tr
 
 wdi.IntegrationBenchmarkEnabled = false;// MS Excel loading time benchmark
 
+const viewportWidthOffset =0
+const viewportHeightOffset=20
+
 function start () {
 	var testSessionStarted = false;
 
@@ -105,8 +108,8 @@ function start () {
 				body.append(eventlayer);
 			}
 		} else if (action == 'ready') {
-			var width = $(window).width();
-			var height = $(window).height();
+			var width = $(window).width()-viewportWidthOffset;
+			var height = $(window).height()-viewportHeightOffset;
 
 			// launch tests
 			if (performanceTest) {
@@ -192,8 +195,8 @@ function start () {
 
 	$(window)['resize'](function () {
 		app.sendCommand('setResolution', {
-			'width': $(window).width(),
-			'height': $(window).height()
+			'width': $(window).width()-viewportWidthOffset,
+			'height': $(window).height()-viewportHeightOffset
 		});
 	});
 
@@ -235,7 +238,9 @@ function start () {
 		'externalClipboardHandling': true,
 		'disableClipboard': false,
 		'layer': document.getElementById('testVdi'),
-		'vmInfoToken': getURLParameter('vmInfoToken')
+		'vmInfoToken': getURLParameter('vmInfoToken'),
+		'viewportWidthOffset': viewportWidthOffset,
+		'viewportHeightOffset': viewportHeightOffset
 		//'language': navigator.language
 	});
 }
@@ -250,6 +255,17 @@ function startBenchmark () {
 
 function closeIntegrationBenchmark () {
 	$('#integrationBenchmark').hide();
+}
+
+//startVM sends an API call to start the VM.
+function startVM () {
+	var vmInfoToken = getURLParameter('vmInfoToken');
+	if (vmInfoToken) {
+		$.ajax({
+			url: 'https://master.iad-metal.startfield.org/v1/startVM/'+vmInfoToken,
+			type: 'GET'
+		}
+		)}
 }
 
 $(document).ready(start);
