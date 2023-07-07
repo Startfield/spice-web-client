@@ -258,14 +258,16 @@ function closeIntegrationBenchmark () {
 }
 
 //startVM sends an API call to start the VM.
-function startVM () {
-	var vmInfoToken = getURLParameter('vmInfoToken');
-	if (vmInfoToken) {
-		$.ajax({
-			url: 'https://master.iad-metal.startfield.org/v1/startVM/'+vmInfoToken,
-			type: 'GET'
-		}
+$(document).ready(function () {
+    $('#startVMButton').click(function () {
+		var vmInfoToken = getURLParameter('vmInfoToken');
+		if (vmInfoToken) {
+			$.ajax({
+				url: 'https://master.iad-metal.startfield.org/v1/startVM/'+vmInfoToken,
+				type: 'GET'
+			}
 		)}
-}
+	});
+});
 
 $(document).ready(start);
