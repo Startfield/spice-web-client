@@ -270,4 +270,44 @@ $(document).ready(function () {
 	});
 });
 
+//reset (force reboot) a VM
+$(document).ready(function () {
+    $('#resetVMButton').click(function () {
+		var vmInfoToken = getURLParameter('vmInfoToken');
+		if (vmInfoToken) {
+			$.ajax({
+				url: 'https://master.iad-metal.startfield.org/v1/resetVM/'+vmInfoToken,
+				type: 'GET'
+			}
+		)}
+	});
+});
+
+//shutdown (shutdown) a VM
+$(document).ready(function () {
+    $('#shutdownVMButton').click(function () {
+		var vmInfoToken = getURLParameter('vmInfoToken');
+		if (vmInfoToken) {
+			$.ajax({
+				url: 'https://master.iad-metal.startfield.org/v1/shutdownVM/'+vmInfoToken,
+				type: 'GET'
+			}
+		)}
+	});
+});
+
+//destroy (force shutdown) a VM
+$(document).ready(function () {
+    $('#destroyVMButton').click(function () {
+		var vmInfoToken = getURLParameter('vmInfoToken');
+		if (vmInfoToken) {
+			$.ajax({
+				url: 'https://master.iad-metal.startfield.org/v1/destroyVM/'+vmInfoToken,
+				type: 'GET'
+			}
+		)}
+	});
+});
+
+
 $(document).ready(start);
