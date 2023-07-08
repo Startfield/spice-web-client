@@ -309,5 +309,18 @@ $(document).ready(function () {
 	});
 });
 
+//send ctrl-alt-delete to a VM
+$(document).ready(function () {
+    $('#sendCtrlAltDelButton').click(function () {
+		var vmInfoToken = getURLParameter('vmInfoToken');
+		if (vmInfoToken) {
+			$.ajax({
+				url: 'https://master.iad-metal.startfield.org/v1/sendCtrlAltDel/'+vmInfoToken,
+				type: 'GET'
+			}
+		)}
+	});
+});
+
 
 $(document).ready(start);
